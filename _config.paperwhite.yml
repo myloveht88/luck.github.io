@@ -1,8 +1,8 @@
 menu:
   Come From: /
   Go To: /
-  who am I?: /about
+  Who Am I?: /about
 
 giscus:
-  enable: true
-  repo: 123
+  enable: false
+  repo: 
