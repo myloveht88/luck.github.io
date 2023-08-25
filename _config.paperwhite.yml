@@ -1,0 +1,8 @@
+menu:
+  Come From: /
+  Go To: /
+  who am I?: /about
+
+giscus:
+  enable: true
+  repo: 123
