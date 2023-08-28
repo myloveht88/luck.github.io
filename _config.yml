@@ -132,4 +132,19 @@ deploy:
 #     categories: false
 #     tags: true
 
+# hacker主题增加首页预览模式
+# excerpt_description: true
+# read_more_btn: true
+# excerpt:
+#   depth: 5  
+#   excerpt_excludes: []
+#   more_excludes: []
+#   hideWholePostExcerpts: true
 
+
+# hexo-admin authentification
+admin:
+  username: myloveht88
+  password_hash: $2a$10$6bg717RpbljU6mJzER/85.vQ5yDzFoXSOs09OcNliPPZk2ZzPU7Sy
+  secret: my super secret phrase
+  deployCommand: ./admin_script/hexo-d.sh

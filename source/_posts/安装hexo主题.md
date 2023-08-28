@@ -1,5 +1,7 @@
 ---
 title: 更换hexo主题
+tags: hexo
+categories: tools
 ---
 
 > **1、进入Hexo官网https://hexo.io/themes/ 选择喜欢的主题**
@@ -7,7 +9,7 @@ title: 更换hexo主题
 ![](https://pic2.zhimg.com/80/v2-e3930f5c1a91cec058f8092f524e1b89_720w.webp)
 
 > 2、在hexo目录下的themes文件夹下打开git bash，输入以下命令，下载主题:
-
+<!-- more -->
 
 ```console
 git clone 复制主题的网址

@@ -51,10 +51,13 @@ googleTrackId:
 # baidu analytics
 baiduTrackId:
 
-
+# favicon
+favicon: /favicon.ico
 
 menu:
   主页: /
   归档: /archives
   # Categories: /categories
-  # Tags: /tags
+  标签: /tags
+  于我: /about
+
