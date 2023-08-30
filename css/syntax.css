@@ -1,7 +1,7 @@
 .entry .gist {
   background: #eee;
-  border: 1px solid #fff;
-  margin: 15px 0px;
+  border: 1px solid color-border;
+  margin-top: 15px;
   padding: 7px 15px;
   border-radius: 2px;
   text-shadow: 0 0 1px #fff;
@@ -38,10 +38,9 @@
   color: color-link;
 }
 figure.highlight {
-  background: #eee;
   border: 1px solid color-border;
-  margin: 1em 0;
-  padding: 1em;
+  margin-top: 15px;
+  padding: 7px 15px;
   border-radius: 2px;
   text-shadow: 0 0 1px #fff;
   line-height: 1.6;
@@ -60,7 +59,7 @@ figure.highlight figcaption a {
 }
 figure.highlight pre {
   border: none;
-  padding: 0;
+  padding: 10px;
   margin: 0;
 }
 figure.highlight table {
@@ -69,13 +68,11 @@ figure.highlight table {
 }
 figure.highlight .gutter {
   color: color-meta;
-  width: 20px;
   padding-right: 15px;
   border-right: 1px solid color-border;
   text-align: right;
 }
 figure.highlight .code {
-  padding-left: 15px;
   border-left: 1px solid #fff;
   color: #666;
 }
@@ -150,34 +147,6 @@ pre .clojure .title {
 pre .deletion {
   color: #dc322f;
 }
-@media (prefers-color-scheme: dark) {
-  .entry .gist {
-    background: #222;
-    border: 1px solid #000;
-    text-shadow: 0 0 1px #000;
-    color: #fff;
-  }
-  .entry .gist .gist-file .gist-meta {
-    text-shadow: 0 0 1px #000;
-  }
-  figure.highlight {
-    background: #222;
-    text-shadow: 0 0 1px #000;
-  }
-  figure.highlight figcaption {
-    text-shadow: 0 0 1px #000;
-  }
-  figure.highlight .code {
-    border-left: 1px solid #000;
-    color: #fff;
-  }
-  pre .comment,
-  pre .template_comment,
-  pre .diff .header,
-  pre .doctype,
-  pre .pi,
-  pre .lisp .string,
-  pre .javadoc {
-    color: #586e75;
-  }
+.gutter {
+  width: 70px;
 }
