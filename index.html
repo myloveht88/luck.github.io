@@ -87,7 +87,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/about/">ABOUT ME</a>
                         </li>
 							
 						
@@ -95,7 +95,7 @@
                         
 							
                         <li>
-                            <a href="/about/">ABOUT ME</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -287,13 +287,96 @@
 
 
 <div class="post-preview "
+     style="background-image: url('/img/mind.png')">
+    <a href="/2023/08/31/脑图转测试用例/">
+        <h2 class="post-title">
+            脑图转测试用例
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-31
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                <!-- 
+vue2在线脑图
+工作中，测试人员都习惯用xmind来写测试思路，但是项目需求和设计往往很大而杂，导致测试的xmind条目繁多，再基于xmind写成excel的用例更是费时费力。  
+一直都想怎么利用开源的脑图在线工具，把大家的脑图都放到线上来，一来好维护，二来更好分享出去。在测试用例输出上做.. -->
+                <!-- <blockquote>
+<h2 id="vue2在线脑图"><a href="#vue2在线脑图" class="headerlink" title="vue2在线脑图"></a>vue2在线脑图</h2></blockquote>
+<p>工作中，测试人员都习惯用xmind来写测试思路，但是项目需求和设计往往很大而杂，导致测试的xmind条目繁多，再基于xmind写成excel的用例更是费时费力。  </p>
+<p>一直都想怎么利用开源的脑图在线工具，把大家的脑图都放到线上来，一来好维护，二来更好分享出去。在测试用例输出上做到省时省力。</p>
+<p>找来找去发现了一个不错的开源工具：<a target="_blank" rel="noopener" href="https://github.com/wanglin2">https://github.com/wanglin2</a></p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/wanglin2/mind-map">https://github.com/wanglin2/mind-map</a></p>
+<p>在线预览：<a target="_blank" rel="noopener" href="https://wanglin2.github.io/mind-map/#/">思绪思维导图</a></p>
+<p>还有一个vue3版本：<a target="_blank" rel="noopener" href="https://github.com/huangyuanyin/hyy-vue3-mindMap">https://github.com/huangyuanyin/hyy-vue3-mindMap</a></p>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="代码优化输出excel的测试用例"><a href="#代码优化输出excel的测试用例" class="headerlink" title="代码优化输出excel的测试用例"></a>代码优化输出excel的测试用例</h2></blockquote>
+<p><img src="/img/mind2case.png"></p>
+<p>通过对开源代码进行改造，增加了excel输入模块，调整了输入输出方式，增加了目录数和用例数。</p>
+<p>编写的脑图会存在本地浏览器的缓存中，key为SIMPLE_MIND_MAP_DATA，实时刷新。</p>
+<p>新增的转换excel方法在\src\pages\Edit\components\Toolbar.vue中的toExcel方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="title function_">toExcel</span>(<span class="params">content</span>) &#123;</span><br><span class="line">      <span class="comment">// content = localStorage.getItem(&#x27;SIMPLE_MIND_MAP_DATA&#x27;)</span></span><br><span class="line">      <span class="comment">// console.log(JSON.parse(content))</span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        content = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;SIMPLE_MIND_MAP_DATA&#x27;</span>)</span><br><span class="line">        <span class="keyword">const</span> xlsx = <span class="built_in">require</span>(<span class="string">&#x27;xlsx&#x27;</span>)</span><br><span class="line">        <span class="keyword">const</span> data = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(content)</span><br><span class="line">        <span class="keyword">const</span> caseTitle = data.<span class="property">root</span>.<span class="property">data</span>.<span class="property">text</span></span><br><span class="line">        <span class="keyword">const</span> sheet = xlsx.<span class="property">utils</span>.<span class="title function_">json_to_sheet</span>([])</span><br><span class="line">        <span class="keyword">const</span> headers =  [<span class="string">&#x27;用例目录&#x27;</span>,<span class="string">&#x27;用例名称&#x27;</span>,<span class="string">&#x27;需求ID&#x27;</span>,<span class="string">&#x27;前置条件&#x27;</span>,<span class="string">&#x27;用例步骤&#x27;</span>,<span class="string">&#x27;预期结果&#x27;</span>,<span class="string">&#x27;用例类型&#x27;</span>,<span class="string">&#x27;用例状态&#x27;</span>,<span class="string">&#x27;用例等级&#x27;</span>,<span class="string">&#x27;创建人&#x27;</span>,<span class="string">&#x27;是否完成自动化&#x27;</span>,<span class="string">&#x27;不可自动化原因&#x27;</span>,<span class="string">&#x27;用例关键字&#x27;</span>,<span class="string">&#x27;序号&#x27;</span>]</span><br><span class="line">        xlsx.<span class="property">utils</span>.<span class="title function_">sheet_add_aoa</span>(sheet, [headers], &#123; <span class="attr">origin</span>: <span class="string">&#x27;A1&#x27;</span> &#125;)</span><br><span class="line">        <span class="keyword">let</span> row = <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> caseNameIndex = <span class="number">1</span></span><br><span class="line">        <span class="keyword">let</span> expectedIndex = <span class="number">1</span></span><br><span class="line">        data.<span class="property">root</span>.<span class="property">children</span>.<span class="title function_">forEach</span>(<span class="function">(<span class="params">directory, index</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">//获取目录</span></span><br><span class="line">          <span class="keyword">const</span> directoryName = directory.<span class="property">data</span>.<span class="property">text</span></span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;目录:&#x27;</span>, directoryName)</span><br><span class="line">          <span class="keyword">if</span> (directory.<span class="property">data</span>.<span class="property">text</span> == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">              <span class="attr">showClose</span>: <span class="literal">true</span>,</span><br><span class="line">              <span class="attr">message</span>: <span class="string">&#x27;用例目录不正确，请检查用例目录是否完整&#x27;</span>,</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;error&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (directory.<span class="property">children</span> == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">            <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">              <span class="attr">showClose</span>: <span class="literal">true</span>,</span><br><span class="line">              <span class="attr">message</span>: <span class="string">&#x27;用例名称格式不正确，请检查用例名称是否完整&#x27;</span>,</span><br><span class="line">              <span class="attr">type</span>: <span class="string">&#x27;error&#x27;</span></span><br><span class="line">            &#125;)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">let</span> caseNames = []</span><br><span class="line">          <span class="keyword">var</span> caseName = <span class="string">&#x27;&#x27;</span></span><br><span class="line">          <span class="keyword">var</span> casebeforeName = <span class="string">&#x27;&#x27;</span></span><br><span class="line">          directory.<span class="property">children</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">caseAll</span> =&gt;</span> &#123;</span><br><span class="line">            caseName = caseAll.<span class="property">data</span>.<span class="property">text</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;用例名称:&#x27;</span>, caseName)</span><br><span class="line">            <span class="keyword">if</span> (caseAll.<span class="property">children</span> == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">              <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">                <span class="attr">showClose</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">message</span>: <span class="string">&#x27;测试前提条件不正确，请检查前提条件是否完整&#x27;</span>,</span><br><span class="line">                <span class="attr">type</span>: <span class="string">&#x27;error&#x27;</span></span><br><span class="line">              &#125;)</span><br><span class="line">              <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">const</span> caseSteps = []</span><br><span class="line">            <span class="keyword">const</span> expectedResults = []</span><br><span class="line">            caseAll.<span class="property">children</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">casebefore</span> =&gt;</span> &#123;</span><br><span class="line">              casebeforeName = casebefore.<span class="property">data</span>.<span class="property">text</span></span><br><span class="line">              <span class="comment">// caseNameName.push(casebefore.data.text)</span></span><br><span class="line">              <span class="keyword">if</span> (casebefore.<span class="property">children</span> == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">                  <span class="attr">showClose</span>: <span class="literal">true</span>,</span><br><span class="line">                  <span class="attr">message</span>: <span class="string">&#x27;用例步骤格式不正确，请检查用例步骤是否完整&#x27;</span>,</span><br><span class="line">                  <span class="attr">type</span>: <span class="string">&#x27;error&#x27;</span></span><br><span class="line">                &#125;)</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">var</span> stepindex = <span class="number">1</span></span><br><span class="line">              casebefore.<span class="property">children</span>.<span class="title function_">forEach</span>(<span class="function"><span class="params">caseStep</span> =&gt;</span> &#123;</span><br><span class="line">                caseSteps.<span class="title function_">push</span>(stepindex + <span class="string">&#x27;、&#x27;</span>+ caseStep.<span class="property">data</span>.<span class="property">text</span>.<span class="title function_">trim</span>())</span><br><span class="line">                <span class="keyword">if</span> (caseStep.<span class="property">children</span> == <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">                  <span class="variable language_">this</span>.$message(&#123;</span><br><span class="line">                    <span class="attr">showClose</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">message</span>: <span class="string">&#x27;预期结果格式不正确，请检查预期结果是否完整&#x27;</span>,</span><br><span class="line">                    <span class="attr">type</span>: <span class="string">&#x27;error&#x27;</span></span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">                expectedResults.<span class="title function_">push</span>(stepindex + <span class="string">&#x27;、&#x27;</span>+ caseStep.<span class="property">children</span>[<span class="number">0</span>].<span class="property">data</span>.<span class="property">text</span>.<span class="title function_">trim</span>())</span><br><span class="line">                stepindex ++</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;)</span><br><span class="line">            caseNames.<span class="title function_">push</span>([</span><br><span class="line">              directoryName,</span><br><span class="line">              caseName,</span><br><span class="line">              <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">              casebeforeName,</span><br><span class="line">              caseSteps.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>),</span><br><span class="line">              expectedResults.<span class="title function_">join</span>(<span class="string">&#x27;\n&#x27;</span>),</span><br><span class="line">              <span class="string">&#x27;功能测试&#x27;</span>,</span><br><span class="line">              <span class="string">&#x27;正常&#x27;</span>,</span><br><span class="line">              <span class="string">&#x27;Level1&#x27;</span>,</span><br><span class="line">              <span class="string">&#x27;测试人&#x27;</span>,</span><br><span class="line">              <span class="string">&#x27;否&#x27;</span></span><br><span class="line">            ])</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;caseNames&#x27;</span>, caseNames)</span><br><span class="line">          &#125;)</span><br><span class="line">          <span class="keyword">var</span> rowValues = []</span><br><span class="line">          caseNames.<span class="title function_">forEach</span>(<span class="function"><span class="params">caseName</span> =&gt;</span> &#123;</span><br><span class="line">            rowValues = caseName</span><br><span class="line">            xlsx.<span class="property">utils</span>.<span class="title function_">sheet_add_aoa</span>(sheet, [rowValues], &#123; <span class="attr">origin</span>: <span class="string">`A<span class="subst">$&#123;row&#125;</span>`</span> &#125;)</span><br><span class="line">            row++</span><br><span class="line">          &#125;)</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;rowValues:&#x27;</span>, rowValues)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> workbook = xlsx.<span class="property">utils</span>.<span class="title function_">book_new</span>()</span><br><span class="line">        xlsx.<span class="property">utils</span>.<span class="title function_">book_append_sheet</span>(workbook, sheet, <span class="string">&#x27;Sheet1&#x27;</span>)</span><br><span class="line">        sheet[<span class="string">&#x27;!cols&#x27;</span>] = headers.<span class="title function_">map</span>(<span class="function">() =&gt;</span> (&#123; <span class="attr">width</span>: <span class="number">30</span>, <span class="attr">wrapText</span>: <span class="literal">true</span> &#125;))</span><br><span class="line">        xlsx.<span class="title function_">writeFile</span>(workbook, caseTitle + <span class="string">&#x27;测试用例.xlsx&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(error)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>对excel表头为如下格式的测试用例进行了适配：</p>
+<table>
+<thead>
+<tr>
+<th align="left">用例目录</th>
+<th>用例名称</th>
+<th>需求ID</th>
+<th>前置条件</th>
+<th>用例步骤</th>
+<th>预期结果</th>
+<th>用例类型</th>
+<th>用例状态</th>
+<th>用例等级</th>
+<th>创建人</th>
+<th>是否完成自动化</th>
+<th>不可自动化原因</th>
+<th>用例关键字</th>
+<th>序号</th>
+</tr>
+</thead>
+</table>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/myloveht88/mindcase">https://github.com/myloveht88/mindcase</a></p>
+<p>遗留问题：</p>
+<p>1、脑图样式无法做到tab之后还能按照模板输出，故只能通过复制老的来新增目录、用例和步骤等。</p>
+<p>2、用例过多会卡顿和未知bug，以后持续维护。</p>
+ -->
+                
+                    <blockquote>
+<h2 id="vue2在线脑图"><a href="#vue2在线脑图" class="headerlink" title="vue2在线脑图"></a>vue2在线脑图</h2></blockquote>
+<p>工作中，测试人员都习惯用xmind来写测试思路，但是项目需求和设计往往很大而杂，导致测试的xmind条目繁多，再基于xmind写成excel的用例更是费时费力。  </p>
+<p>一直都想怎么利用开源的脑图在线工具，把大家的脑图都放到线上来，一来好维护，二来更好分享出去。在测试用例输出上做到省时省力。</p>
+<p>找来找去发现了一个不错的开源工具：<a target="_blank" rel="noopener" href="https://github.com/wanglin2">https://github.com/wanglin2</a></p>
+<p>github地址：<a target="_blank" rel="noopener" href="https://github.com/wanglin2/mind-map">https://github.com/wanglin2/mind-map</a></p>
+<p>在线预览：<a target="_blank" rel="noopener" href="https://wanglin2.github.io/mind-map/#/">思绪思维导图</a></p>
+<p>还有一个vue3版本：<a target="_blank" rel="noopener" href="https://github.com/huangyuanyin/hyy-vue3-mindMap">https://github.com/huangyuanyin/hyy-vue3-mindMap</a></p>
+                    
+                      <a class="article-more-a" href="/2023/08/31/%E8%84%91%E5%9B%BE%E8%BD%AC%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="background-color:WhiteSmoke;color:DimGray;text-decoration:none">Read More</a>
+                    
+                  
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
      style="background-image: url('/img/cmqz.jpg')">
-    <a href="/2023/08/28/碎碎念的周一/">
+    <a href="/2023/08/25/碎碎念的周一/">
         <h2 class="post-title">
             碎碎念的周一
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-28
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-25
         </p>
         
         <div class="post-content-preview">
@@ -329,7 +412,7 @@
 <h2 id="上海是真的潮湿"><a href="#上海是真的潮湿" class="headerlink" title="上海是真的潮湿"></a>上海是真的潮湿</h2></blockquote>
 <p>记忆里，这三个月不知道下了多少雨了<br>买的黑色油漆丢在客厅的角落里<br>因为懒<br>或者说还能忍受这小牛u1pro的不完美<br>我觉得国庆前应该会动手处理<br>今天公众号又提示一黄一蓝雷电预警<br>外面眼看黑了下来<br>过了夏至，本来天就黑的早，现在更早了  </p>
                     
-                      <a class="article-more-a" href="/2023/08/28/%E7%A2%8E%E7%A2%8E%E5%BF%B5%E7%9A%84%E5%91%A8%E4%B8%80/" style="background-color:WhiteSmoke;color:DimGray;text-decoration:none">Read More</a>
+                      <a class="article-more-a" href="/2023/08/25/%E7%A2%8E%E7%A2%8E%E5%BF%B5%E7%9A%84%E5%91%A8%E4%B8%80/" style="background-color:WhiteSmoke;color:DimGray;text-decoration:none">Read More</a>
                     
                   
             </p>
